@@ -16,7 +16,11 @@ public class P_13301 {
         for(int i =4; i<=N; i++){
             bigInteger[i] = bigInteger[i-1].add(bigInteger[i-2]);
         }
-        bw.write(bigInteger[N].multiply(BigInteger.valueOf(2)).add(bigInteger[N-1].multiply(BigInteger.valueOf(2))).toString());
+        if(N>1){
+            bw.write(bigInteger[N].multiply(BigInteger.valueOf(2)).add(bigInteger[N-1].multiply(BigInteger.valueOf(2))).toString());
+        }
+        else
+            bw.write(bigInteger[1].multiply(BigInteger.valueOf(4)).toString());
         bw.flush();
     }
 
