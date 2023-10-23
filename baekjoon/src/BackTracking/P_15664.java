@@ -3,12 +3,11 @@ import java.io.*;
 import java.util.StringTokenizer;
 import java.util.Arrays;
 
-public class P_15663 {
+public class P_15664 {
 
     static int N,M;
     static int nums[];
     static int records[];
-    static boolean visited[];
     static StringBuilder sb;
 
 
@@ -25,7 +24,6 @@ public class P_15663 {
         for(int i = 0; i<N; i++)
             nums[i] = Integer.parseInt(st.nextToken());
         Arrays.sort(nums);
-        visited = new boolean[N];
         int before = 0;
         for(int i = 0; i<N; i++){
             if(before == nums[i])
@@ -46,15 +44,13 @@ public class P_15663 {
             sb.append("\n");
             return;
         }
-        visited[idx] = true;
         int before = 0;
-        for(int i = 0; i<N; i++){
-            if(before == nums[i] || visited[i])
+        for(int i = idx+1; i<N; i++){
+            if(before == nums[i])
                 continue;
             dfs(i,count+1);
             before = nums[i];
         }
-        visited[idx] = false;
     }
 
 }
